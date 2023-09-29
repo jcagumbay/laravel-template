@@ -20,5 +20,4 @@ Route::get('/', function () {
 
 Route::resource('reservation', ReservationController::class)
     ->only(['index']);
-    //->middleware(['auth', 'verified']);
-
+//->middleware(['auth', 'verified']);

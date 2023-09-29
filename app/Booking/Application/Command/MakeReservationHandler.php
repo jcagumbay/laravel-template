@@ -14,11 +14,10 @@ class MakeReservationHandler implements CommandHandler
      */
     public function handle(Command $command): void
     {
-        print sprintf(
+        echo sprintf(
             'Command is executed for reservation on %s for %.2f hours. <br/>',
             $command->getReservationDate()->format(\DateTimeInterface::ATOM),
             $command->getDuration()
         );
     }
-
 }

@@ -1,2 +1,2 @@
 csfix:
-	vendor/bin/php-cs-fixer fix app
+	vendor/bin/php-cs-fixer fix -vvv --show-progress=dots
