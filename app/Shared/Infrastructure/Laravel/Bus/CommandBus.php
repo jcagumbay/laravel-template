@@ -1,9 +1,12 @@
 <?php
+
 declare(strict_types=1);
+
 namespace App\Shared\Infrastructure\Laravel\Bus;
 
 use App\Shared\Application\Command;
 use App\Shared\Application\CommandHandler;
+use App\Shared\Infrastructure\Laravel\Middleware\Bus\LogMiddleware;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -11,7 +14,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 class CommandBus implements ShouldQueue
 {
-    use Dispatchable, Queueable;
+    use Dispatchable;
+    use Queueable;
 
     private const CONNECTION_NAME = 'command-bus';
 

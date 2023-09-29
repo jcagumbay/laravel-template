@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Infrastructure\Laravel\Bus;
+namespace App\Shared\Infrastructure\Laravel\Middleware\Bus;
 
 use Closure;
 
