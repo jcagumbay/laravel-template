@@ -20,6 +20,6 @@ The purpose of this proposed template is for your application, specially your co
 ## Explanation
 
 1. `src/Booking`. This is your `domain`. The goal is to navigate the `src` in terms of business terms instead of `Controller`, `Entity`, etc directories.
-2. `Application` directory. All your commands and queries live here (CQRS implementation using Symfony's Messenger). This is in accordance to Onion architecture. UI should only talk to Application.
+2. `Application` directory. All your commands and queries live here (CQRS implementation using Laravel's Queue). This is in accordance to Onion architecture. UI should only talk to Application.
 3. `Domain` directory. Your business code lives here.
 4. `Infrastructure` directory. This contains your adapters, doctrine mappings, etc.
