@@ -38,6 +38,7 @@ class CommandBus implements ShouldQueue
 
     public function middleware()
     {
+        // You can add different middlewares here, such as DB transaction, logging, event dispatching after commit, etc.
         return [new LogMiddleware()];
     }
 }

@@ -10,8 +10,7 @@ class LogMiddleware
 {
     public function handle(object $job, Closure $next): void
     {
-        echo 'I am a logger middleware which can be optionally used on your command bus.<br/>';
-
+        //echo 'I am a logger middleware which can be optionally used on your command bus.<br/>';
         $next($job);
     }
 }
