@@ -14,13 +14,15 @@ class Reservation extends Model
         'duration' => null,
     ];
 
-    //    public function __construct(\DateTimeImmutable $reservationDate, Duration $duration)
-    //    {
-    //        parent::__construct();
-    //
-    //        $this->guarded['reservationDate'] = $reservationDate->format(\DateTimeInterface::ATOM);
-    //        $this->guarded['duration'] = $duration->getValue();
-    //    }
+    public function start(\DateTimeImmutable $reservationDate, float $duration): self
+    {
+        $this->fill([
+            'reservationDate' => $reservationDate->format(\DateTimeImmutable::ATOM),
+            'duration' => (new Duration($duration))->getValue(),
+        ]);
+
+        return $this;
+    }
 
     public function getReservationDate(): \DateTimeImmutable
     {

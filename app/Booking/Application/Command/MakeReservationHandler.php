@@ -21,10 +21,8 @@ class MakeReservationHandler implements CommandHandler
     public function handle(Command $command): void
     {
         $reservation = new Reservation();
-        $reservation->fill([
-            'reservationDate' => $command->getReservationDate()->format(\DateTimeImmutable::ATOM),
-            'duration' => $command->getDuration(),
-        ]);
+        $reservation->start($command->getReservationDate(), $command->getDuration());
+
         $this->reservationRepository->save($reservation);
     }
 }
