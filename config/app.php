@@ -1,5 +1,6 @@
 <?php
 
+use App\Booking\Infrastructure\Laravel\ServiceProvider\BookingServiceProvider;
 use App\Shared\Infrastructure\Laravel\ServiceProvider\AuthServiceProvider;
 use App\Shared\Infrastructure\Laravel\ServiceProvider\EventServiceProvider;
 use App\Shared\Infrastructure\Laravel\ServiceProvider\RouteServiceProvider;
@@ -163,6 +164,7 @@ return [
         // BroadcastServiceProvider::class,
         EventServiceProvider::class,
         RouteServiceProvider::class,
+        BookingServiceProvider::class,
     ])->toArray(),
 
     /*

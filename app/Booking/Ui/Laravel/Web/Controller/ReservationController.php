@@ -18,8 +18,6 @@ class ReservationController extends BaseController
      */
     public function index()
     {
-        echo 'For now, this just a demonstration of Command Bus and QueryBus. DB integration is coming up!<br/>';
-
         CommandBus::send(new MakeReservation(new DateTimeImmutable(), 2.0));
 
         return view('reservation.index', [
