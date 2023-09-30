@@ -17,13 +17,12 @@ class GetReservationsHandler implements QueryHandler
 
     public function handle(Query|GetReservations $query): array
     {
-        return array_map(
+        return $this->reservationRepository->all()->map(
             fn (Reservation $reservation) => sprintf(
                 'Reserved for %.2f hours at %s',
                 $reservation->getDuration()->getValue(),
                 $reservation->getReservationDate()->format(\DateTimeInterface::ATOM)
             ),
-            $this->reservationRepository->all()
-        );
+        )->toArray();
     }
 }

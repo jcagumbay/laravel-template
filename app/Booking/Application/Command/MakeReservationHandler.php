@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Booking\Application\Command;
 
-use App\Booking\Domain\Duration;
 use App\Booking\Domain\Repository\ReservationRepository;
 use App\Booking\Domain\Reservation;
 use App\Shared\Application\Command;
@@ -21,7 +20,11 @@ class MakeReservationHandler implements CommandHandler
      */
     public function handle(Command $command): void
     {
-        $reservation = new Reservation($command->getReservationDate(), new Duration($command->getDuration()));
+        $reservation = new Reservation();
+        $reservation->fill([
+            'reservationDate' => $command->getReservationDate()->format(\DateTimeImmutable::ATOM),
+            'duration' => $command->getDuration(),
+        ]);
         $this->reservationRepository->save($reservation);
     }
 }

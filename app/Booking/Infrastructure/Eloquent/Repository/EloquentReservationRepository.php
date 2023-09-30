@@ -6,6 +6,7 @@ namespace App\Booking\Infrastructure\Eloquent\Repository;
 
 use App\Booking\Domain\Repository\ReservationRepository;
 use App\Booking\Domain\Reservation;
+use Illuminate\Database\Eloquent\Collection;
 
 class EloquentReservationRepository implements ReservationRepository
 {
@@ -14,8 +15,8 @@ class EloquentReservationRepository implements ReservationRepository
         $reservation->save();
     }
 
-    public function all(): array
+    public function all(): Collection
     {
-        return Reservation::all()->toArray();
+        return Reservation::all();
     }
 }
